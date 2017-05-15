@@ -1,11 +1,13 @@
 from unittest import TestCase
-from tcii18n import trans
+from tcii18n.translator import Translator
 
 
 class I18nTest(TestCase):
     def setUp(self):
-        self.trans = trans._
-        self.trans_it = None
+        translator = Translator('test/fixtures.fr.csv')
+        self.trans = translator.translate
+        translator = Translator('test/fixtures.it.csv')
+        self.trans_it = translator.translate
 
     def test_translate(self):
         self.assertEqual(self.trans('TCI title'), 'Titre ITC')
