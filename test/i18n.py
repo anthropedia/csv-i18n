@@ -21,3 +21,6 @@ class I18nTest(TestCase):
         self.assertEqual(self.trans_it('TCI title'), 'ITC titolo')
         self.assertEqual(self.trans_it('Welcome %(user)s!', user='John'),
                          'Benvenuto John!')
+
+    def test_display_unknown_message(self):
+        self.assertEqual(self.trans('Unknown message'), 'Unknown message')
