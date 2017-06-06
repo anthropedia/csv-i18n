@@ -12,4 +12,4 @@ def flask_methods(app, get_translations_file):
                 _cached_translators[filename] = Translator(
                     get_translations_file())
             return _cached_translators[filename].translate(sentence)
-        return dict(trans=trans)
+        return dict(trans=trans, _=trans)
