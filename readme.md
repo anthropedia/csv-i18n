@@ -24,3 +24,29 @@ from tcii18n import Translator
 translator = Translator('my_file.csv')
 translator.translate('My string')
 ```
+
+In a flask project:
+
+*core.py*
+
+```
+from tcii18n.template import flask_methods
+
+def get_translations_file():
+    return 'path/to/my/file.csv'
+
+flask_methods(app, get_translations_file)
+```
+
+*template.html*
+
+```
+<h1>{{ _("Sentence") }}</h1>
+```
+
+Where:
+
+-get_translations_file() is a function that returns the appropriate translation file path
+-flask_methods(app, get_translation_file) initializes the template processor
+with app as your Flask instance and get_translation_file is the reference
+ to the callable method.
