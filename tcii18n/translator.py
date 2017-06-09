@@ -13,3 +13,4 @@ class Translator:
                 for key, value in kwargs.items():
                     row[1] = row[1] % {key: value}
                 return row[1]
+        return sentence
