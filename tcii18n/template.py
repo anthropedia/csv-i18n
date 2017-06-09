@@ -9,7 +9,6 @@ def flask_methods(app, get_translations_file):
         def trans(sentence):
             filename = get_translations_file()
             if filename not in _cached_translators:
-                _cached_translators[filename] = Translator(
-                    get_translations_file())
+                _cached_translators[filename] = Translator(filename)
             return _cached_translators[filename].translate(sentence)
         return dict(trans=trans)
