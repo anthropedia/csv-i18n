@@ -1,5 +1,5 @@
 from unittest import TestCase
-from tcii18n.translator import Translator
+from csvi18n import Translator
 
 
 class I18nTest(TestCase):

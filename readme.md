@@ -1,14 +1,14 @@
-# TCI Translation Library
+# Translation Library with CSV
 
-Translate the TCI interface from CSV translation files.
+Translate a content from a CSV translation files.
 
 ## Example
 
-TCI-i18n provides translation from CSV files.
-
 ### CSV files format
 
-CSV files can have this format and should be UTF-8 encoded
+CSV files can have this format and should be UTF-8 encoded.
+
+_my-translations-file.csv_:
 
 ```
 TCI title,Titre ITC
@@ -19,8 +19,8 @@ Welcome %(user)s!,Bienvenue %(user)s !
 ### Usage
 
 ```
-from tcii18n import Translator
+from csvi18n import Translator
 
-translator = Translator('my_file.csv')
-translator.translate('My string')
+translator = Translator('my-translations-file.csv')
+translator.translate('TCI title')  # => Titre ITC
 ```
