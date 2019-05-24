@@ -9,7 +9,7 @@ class Translator:
         self._cache_key = filename
         self._cache = cache
         reader = open(filename, 'r')
-        self.content = tuple(csv.reader(reader))
+        self.content = tuple(row for row in csv.reader(reader) if len(row))
         reader.close()
         if self._cache and self._cache_key not in _translators.keys():
             _translators[self._cache_key] = self.content
