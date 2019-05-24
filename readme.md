@@ -24,3 +24,10 @@ from csvi18n import Translator
 translator = Translator('my-translations-file.csv')
 translator.translate('TCI title')  # => Titre ITC
 ```
+
+
+### Run tests
+
+```
+python3 -m unittest
+```
