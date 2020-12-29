@@ -4,8 +4,8 @@ from csvi18n import Translator
 
 class I18nTest(TestCase):
     def setUp(self):
-        translator = Translator('test/fixtures.fr.csv')
-        self.trans = translator.translate
+        self.translator = Translator('test/fixtures.fr.csv')
+        self.trans = self.translator.translate
         translator = Translator('test/fixtures.it.csv')
         self.trans_it = translator.translate
 
@@ -24,3 +24,8 @@ class I18nTest(TestCase):
 
     def test_display_unknown_message(self):
         self.assertEqual(self.trans('Unknown message'), 'Unknown message')
+
+    def test_caching_documents(self):
+        self.assertEqual(self.translator._cache['TCI title'], 'Titre ITC')
+        translator = Translator('test/fixtures.fr.csv', cache=False)
+        self.assertDeepEqual(self.translator._cache, {})

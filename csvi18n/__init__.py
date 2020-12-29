@@ -1,13 +1,13 @@
 import csv
 
 
-_translators = {}
+_cached_translators = {}
 
 
 class Translator:
-    def __init__(self, filename: str, cache: bool=True):
+    def __init__(self, filename: str, use_cache: bool=True):
         self._cache_key = filename
-        self._cache = cache
+        self._translator = _chached_translators if use_cache else {}
         reader = open(filename, 'r')
         self.content = tuple(row for row in csv.reader(reader) if len(row))
         reader.close()
@@ -15,7 +15,7 @@ class Translator:
             _translators[self._cache_key] = self.content
 
     def get_translations(self) -> tuple:
-        if self._cache:
+        if self.use_cache:
             return _translators[self._cache_key]
         else:
             return self.content
