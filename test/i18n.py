@@ -26,6 +26,4 @@ class I18nTest(TestCase):
         self.assertEqual(self.trans('Unknown message'), 'Unknown message')
 
     def test_caching_documents(self):
-        self.assertEqual(self.translator._cache['TCI title'], 'Titre ITC')
-        translator = Translator('test/fixtures.fr.csv', cache=False)
-        self.assertDeepEqual(self.translator._cache, {})
+        self.assertEqual(self.translator._cache_key, 'test/fixtures.fr.csv')
