@@ -7,4 +7,5 @@ setup(
     author='Vincent Agnano',
     license='Copyright Anthropedia',
     long_description=open('readme.md').read(),
+    py_modules=[],
 )
