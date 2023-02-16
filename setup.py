@@ -2,7 +2,7 @@ from distutils.core import setup
 
 
 setup(
-    name='csv-i18n',
+    name='csvi18n',
     version='0.3',
     author='Vincent Agnano',
     license='Copyright Anthropedia',
